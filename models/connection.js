@@ -1,16 +1,13 @@
-const mongoose = require('mongoose')
 require('dotenv').config()
+const mongoose = require("mongoose")
 
+const DATABASE_URL = process.env.DATABASE_URL
 
-const {Schema, model} = mongoose
+mongoose.connect(DATABASE_URL)
 
-const rsvpSchema = new Schema({
-    name: String,
-    isAttending: Boolean,
-    location: String,
-    comments: String
-})
+mongoose.connection
+    .on("open", ()=> console.log("CONNECTED TO MONGOOSE"))
+    .on("close" , () => console.log("brokedn not connected to mongoose omg"))
+    .on("error", (error) => console.log(error))
 
-const Rsvp = model("rsvp", rsvpSchema)
-
-module.exports = Rsvp
+module.exports = mongoose
