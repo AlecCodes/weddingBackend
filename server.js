@@ -1,11 +1,13 @@
 const express = require('express')
 const app = express()
 const PORT = process.env.PORT || 3000
+const cors = require('cors')
 require('dotenv').config()
 const RSVP = require('./models/rsvp')
 
 
 //middleware
+app.use(cors())
 app.use(express.json())
 
 //controller
