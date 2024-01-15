@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
     secure: true,
     auth: {
         user : "alec322@gmail.com",
-        pass : "enmh ocej fhab gtej"
+        pass : process.env.PASS
     }
 })
 
@@ -41,6 +41,7 @@ app.post("/" , async (req,res) => {
         from : 'alec322@gmail.com',
         to: 'alec322@gmail.com',
         subject: `Hooray! ${newRsvp.name} just RSVP'd!`,
+        text: 'yo',
         html: `<h1>${newRsvp.name} ${(newRsvp.name) ? 'is Attending :)' : 'can not Attend T_T'}</h1>
             <h2>${newRsvp.location}</h2>
             <hr></hr>
