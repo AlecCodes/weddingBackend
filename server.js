@@ -42,7 +42,7 @@ app.post("/" , async (req,res) => {
         to: 'alec322@gmail.com',
         subject: `Hooray! ${newRsvp.name} just RSVP'd!`,
         text: 'yo',
-        html: `<h1>${newRsvp.name} ${(newRsvp.name) ? 'is Attending :)' : 'can not Attend T_T'}</h1>
+        html: `<h1>${newRsvp.name} ${(newRsvp.isAttending) ? 'is Attending :)' : 'can not Attend T_T'}</h1>
             <h2>${newRsvp.location}</h2>
             <hr></hr>
             <label>They said:</label>    
